@@ -1,0 +1,328 @@
+/*
+THEME NAME:AJ Morris - Headway Site
+THEME URI:http://ajmorris.org
+VERSION:1.0
+AUTHOR:AJ Morris
+AUTHOR URI:http://ajmorris.org
+DESCRIPTION:This child theme is custom built without the Design Mode for Headway Themes 3.0. It features custom built items for the EmailBuddy plugin, along with some short codes to place things in a few places easier.
+TEMPLATE: headway
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Oswald|Copse);
+
+body { 
+	border-top: 5px solid #2BA602; 
+	font-family: "Helvetica Nue", Arial, sans-serif; 
+	font-size: 14px; 
+	line-height: normal;
+	background: url(images/square_bg.png) white;
+}
+
+a { 
+	color: #2ba602; 
+}
+
+/* Header */
+.block-type-header .banner { font-size: 28px; font-family: "Copse", Georgia, serif; margin: 15px 10px 0 !important; }
+.block-type-header .tagline { font-size: 24px; color: gray; font-family: "Copse", Georgia, serif; }
+
+/* Navigation */
+.block-type-navigation.top ul { height: 50%; padding-top: 10px; }
+.block-type-navigation.top ul li { height: 50%; }
+.block-type-navigation.top { background: #a1fa83; border: 3px solid #2ba602; border-top: 0px; width: 90%; margin-left: 40px; }
+.block-type-navigation.top ul li a { color: #2ab602; }
+.block-type-navigation.top ul li a:hover { color: #2ba602; text-decoration: underline; }
+.block-type-navigation.top ul li a:active { color: #2ba602; }
+
+/* Content */
+.block-type-content .page {
+	background: white;
+	padding: 10px;
+	border: 1px solid #dedede;
+	border-top: 4px solid #2ba602;
+	border-bottom: 4px solid #2ba602;	
+}
+
+.block-type-content div.post { 
+	padding: 10px; 
+	width: 95%; 
+	border: 4px solid #dedede;
+	background: white;
+	color: #555;
+	line-height: 20px; 
+}
+
+.block-type-content a { color: #2ba602; text-decoration: none; }
+
+.block-type-content a:hover { color: #2ab602; text-decoration: underline; }
+
+.block-type-content h1.entry-title { 
+	font-size: 30px; 
+	color: #2ba602; 
+	text-shadow: 1px -1px 1px #f1f1f1; 
+	font-family: "Oswald", Georgia, serif; 
+	line-height: 30px;
+}
+
+.block-type-content h2.entry-title a, 
+.block-type-content h1.entry-title a { 
+	font-family: "Oswald", Georgia, serif; 
+	color: #2ba602; 
+	font-size: 30px; 
+	text-shadow: 1px -1px 1px #f1f1f1;
+	line-height: 30px; 
+	-webkit-transition: all .5s ease-in-out;
+	-moz-transition-delay: all .5s ease-in-out; 
+	transition: all .5s ease-in-out;
+}
+
+.block-type-content h2.entry-title a:visited, 
+.block-type-content h1.entry-title a:visited { 
+	font-family: "Oswald", Georgia, serif; 
+	color: #2ba602; 
+	font-size: 30px; 
+	text-shadow: 1px -1px 1px #f1f1f1; 
+	line-height: 30px;
+	-webkit-transition: all .5s ease-in-out;
+	-moz-transition-delay: all .5s ease-in-out;
+	transition: all .5s ease-in-out; 
+}
+
+.block-type-content h2.entry-title a:hover, 
+.block-type-content h1.entry-title a:hover { 
+	color: #333; 
+	text-decoration: none;
+	-webkit-transform: scale(1.8);
+	-webkit-transition: all .5s ease-in-out;
+	-moz-transition-delay: all .5s ease-in-out;
+	transition: all .5s ease-in-out; 
+}
+
+.block-type-content h3 {
+	font-size: 22px;
+	font-family: "Oswald", Georgia, serif;
+	line-height: 22px;
+	color: #2ab602;
+}
+
+.entry-meta { font-size: 12px; color: gray; }
+
+.entry-meta-above {
+	border-bottom: 1px dashed #dedede;
+}
+
+a.more-link { 
+	background: #efefef; 
+	color: #2ba602; 
+	float: right; 
+	border: 1px solid #dedede; 
+	margin-top: 20px; 
+	-webkit-transition: all .5s ease-in-out;
+	-moz-transition-delay: all .5s ease-in-out;
+	transition: all .5s ease-in-out;
+}
+
+a.more-link:hover { background: #a1fa82; border: 1px solid #2ba602; }
+
+.nav-previous, .nav-next { background: #efefef; color: #2ba602; padding: 10px; border: 1px solid #dedede; }
+
+/* Comments */
+.block-type-content .loop-navigation .nav-next { margin-right: 10px; }
+.block-type-content div#comments { background: white; border: 4px solid #dedede; padding: 10px; width: 95%; }
+.block-type-content ol.commentlist { width: 90%; }
+
+/* End of Post line */
+.block-type-content .post-ending {
+	border-top: 1px solid #dedede;
+	margin-bottom: 10px;
+	clear: both;
+}
+
+/* Social Sharing */
+.block-type-content .social-sharing {
+	border-bottom: 4px solid #000066;
+	background: #c1dcfb;
+	float: left;
+	width: 45%;
+	height: 160px;
+	padding: 5px 10px;
+	clear: both;
+	margin-bottom: 10px;
+}
+
+.block-type-content .social-sharing h3 {
+	line-height: normal;
+	color: #000066;
+}
+
+.block-type-content .social-sharing ul.sharing-loc {
+	margin-top: 10px;
+}
+
+.block-type-content .social-sharing ul.sharing-loc li {
+	margin-top: 5px;
+}
+
+/* Affiliate Box*/
+.block-type-content .headway-aff {
+	float: right;
+	width: 47%;
+	height: 160px;
+	border-bottom: 4px solid #c74217;
+	padding: 5px 10px;
+	margin-bottom: 10px;
+	background: #f3c6b7;
+	color: #c74217;
+}
+
+.block-type-content .headway-aff img { float: left; margin-right: 5px; }
+
+.block-type-content .headway-aff h3 {
+	line-height: normal;
+	color: #c74217;
+}
+
+/* Below Entry Subscribe */
+.block-type-content .below-entry-subscribe {
+	background: #a1fa83;
+	padding: 10px;
+	border-bottom: 4px solid #2ba602;
+	margin: 10px 0;
+	clear: both;
+}
+
+.block-type-content .subscribe-heading {
+	font-family: "Oswald", Georgia, serif;
+	font-size: 20px;
+	color: #2ba602;
+}
+
+.block-type-content .emailbuddy input[type="submit"] {
+	border: 1px solid #2ab602;
+}
+
+.block-type-content .emailbuddy input[type="email"] {
+	width: 200px;
+}
+
+.block-type-content .emailbuddy input[type=submit] {
+	-webkit-transition: all .5s ease-in-out;
+}
+
+.block-type-content .emailbuddy input[type=submit]:hover {
+	-webkit-transition: all .5s ease-in-out;
+	color: white;
+	 
+}
+
+.block-type-content input[type="text"], input[type="password"], input[type="email"], textarea, select { 
+	display: inline; 
+	margin-right: 15px; 
+}
+
+/* Author Box */
+.block-type-content .author { 
+	background: #efefef;
+	height: 160px;
+	padding: 10px;
+	clear: both;
+	margin-bottom: 10px;
+	border-bottom: 4px solid #dedede;
+	
+}
+.block-type-content .author h3 { margin-bottom: 10px; letter-spacing: 1px; color: #2ba602; }
+.block-type-content .author-image { float: left; }
+.block-type-content .author-image img { border: 1px solid #dedede; background: #fff; padding: 3px; }
+.block-type-content .author-bio { float: right; width: 78%; }
+.block-type-content .author-follow { float: right; width: 78%; margin-top: 20px; }
+
+/* Widgets */
+
+.block-type-widget-area .widget { border: 1px solid #dedede; background: #f8f8f8; margin-bottom: 10px; border-radius: 5px; }
+
+/* EmailBuddy Widget */
+.block-type-widget-area .widget_pluginbuddyemailbuddy {
+	background: #a1fa83;
+	border: 1px solid #2ba602;
+	color: #2ba602;
+}
+
+.block-type-widget-area .widget_pluginbuddyemailbuddy div.emailbuddy_pretext {
+	font-size: 20px;
+	text-align: center;
+	font-family: "Oswald", Georgia, serif;
+}
+
+.block-type-widget-area .widget_pluginbuddyemailbuddy input[type="email"], input[type="submit"], input[type="button"], button {
+	margin-right: 5px;
+}
+
+.block-type-widget-area form.emailbuddy { text-align: center; }
+
+/* Footer Block */
+
+.block-type-footer {
+	margin-top: 10px;
+	background: white;
+	border-top: 4px solid #2ba602;
+	border-left: 1px solid #dedede;
+	border-right: 1px solid #dedede;
+	color: #555;
+	margin-bottom: 0px;
+}
+
+/* Shortcodes */
+/* Box */
+.post-notice {
+	background: #fff6bf;
+	border: 1px solid #ffd324;
+	padding: 5px;
+	color: #555;
+}
+
+.post-notice a {
+	color: #555;
+	text-decoration: underline;
+}
+
+.post-notice a:hover { text-decoration: underline; color: #333; }
+
+/* Twitter Shortcode */
+iframe.twitter-follow-button { width: 120px !important; }
+
+/* Subscribe Box */
+.subscribe-box {
+	background: #a1fa83;
+	padding: 10px;
+	border-bottom: 4px solid #2ba602;
+	margin: 10px 0;
+}
+
+.subscribe-box .subscribe-heading {
+	font-family: "Oswald", Georgia, serif;
+	font-size: 20px;
+	color: #2ba602;
+}
+
+.subscribe-box .emailbuddy input[type="submit"] {
+	border: 1px solid #2ab602;
+}
+
+.subscribe-box .emailbuddy input[type="email"] {
+	width: 200px;
+}
+
+.subscribe-box .emailbuddy input[type=submit] {
+	-webkit-transition: all .5s ease-in-out;
+}
+
+.subscribe-box .emailbuddy input[type=submit]:hover {
+	-webkit-transition: all .5s ease-in-out;
+	color: white;
+	 
+}
+
+.subscribe-box input[type="text"], input[type="password"], input[type="email"], textarea, select { 
+	display: inline; 
+	margin-right: 15px; 
+}
