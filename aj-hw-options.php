@@ -2,7 +2,7 @@
 class ManageAjChildThemePanel extends HeadwayVisualEditorPanelAPI {
 	
 	public $id = 'aj-child-theme';
-	public $name = 'AJ\'s Child Theme Options';
+	public $name = 'Child Theme Options';
 	public $mode = 'manage';
 	
 	public $tabs = array(
@@ -19,17 +19,20 @@ class ManageAjChildThemePanel extends HeadwayVisualEditorPanelAPI {
 				'type' => 'select',
 				'name' => 'aj-background-image',
 				'options' => array(
-					'default' => 'Default',
-					'argyle' => 'Argyle',
-					'robots' => 'Black with Robots',
-					'pinstriped-suit' => 'Pinstriped Suit'
+					'square_bg.png' => 'Default',
+					'argyle.png' => 'Argyle',
+					'robots.png' => 'Black with Robots',
+					'pinstriped_suit.png' => 'Pinstriped Suit'
 				),
 				'label' => 'Background Image',
-				'default' => '',
-				'tooltip' => 'Change the background image of the child theme.'
+				'default' => 'Default',
+				'tooltip' => 'Change the background image of the theme.',
+				'callback' => '$i("body").css({backgroundImage: "url(" + Headway.childThemeURL + "/images/" + value + ")" });'
 			)
 		)
 	);
 
 }
 headway_register_visual_editor_panel('ManageAjChildThemePanel');
+
+

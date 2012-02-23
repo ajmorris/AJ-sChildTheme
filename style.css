@@ -27,7 +27,7 @@ a {
 .block-type-header .tagline { font-size: 24px; color: gray; font-family: "Copse", Georgia, serif; }
 
 /* Navigation */
-.block-type-navigation.top ul { height: 50%; padding-top: 10px; }
+.block-type-navigation.top ul { height: 50%; }
 .block-type-navigation.top ul li { height: 50%; }
 .block-type-navigation.top { background: #a1fa83; border: 3px solid #2ba602; border-top: 0px; width: 90%; margin-left: 40px; }
 .block-type-navigation.top ul li a { color: #2ab602; }
@@ -124,7 +124,7 @@ a.more-link {
 
 a.more-link:hover { background: #a1fa82; border: 1px solid #2ba602; }
 
-.nav-previous, .nav-next { background: #efefef; color: #2ba602; padding: 10px; border: 1px solid #dedede; }
+.nav-previous a, .nav-next a { background: #efefef; color: #2ba602; padding: 10px; border: 1px solid #dedede; }
 
 /* Comments */
 .block-type-content .loop-navigation .nav-next { margin-right: 10px; }

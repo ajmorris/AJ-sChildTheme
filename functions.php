@@ -5,21 +5,22 @@ function aj_load_panel_options() {
 	require_once( get_stylesheet_directory(). '/aj-hw-options.php' );
 }
 
+add_action('wp_head', 'switch_background_image');
 function switch_background_image() {
 	$image = HeadwayOption::get('aj-background-image', 'general', $default);
 	
 	switch ($image)
 	{
-	case 'default':
+	case 'square_bg.png':
 		break;
-	case 'argyle':
-		echo 'header("Content-type: text/css");	body { background: url(\'wp-content/themes/aj-morris/images/argyle.png\'); }';
+	case 'argyle.png':
+		echo '<style type="text/css"> body { background: url(\'wp-content/themes/aj-morris/images/argyle.png\'); } </style>';
 		break;
-	case 'robots':
-		wp_enqueue_style( 'headway-optin-box-block', plugins_url('/css/style2.css', __FILE__) );
+	case 'robots.png':
+		echo '<style type="text/css"> body { background: url(\'wp-content/themes/aj-morris/images/robots.png\'); } </style>';
 		break;
-	case 'pinstriped-suit':
-		wp_enqueue_style( 'headway-optin-box-block', plugins_url('/css/style3.css', __FILE__) );
+	case 'pinstriped_suit.png':
+		echo '<style type="text/css"> body { background: url(\'wp-content/themes/aj-morris/images/pinstriped_suit.png\'); } </style>';
 		break;
 	}
 }
@@ -32,6 +33,8 @@ function aj_child_setup(){
 	remove_theme_support('headway-structure-css');
 }
 
+
+// Adds the facebook like button code to the <head> area so that it can be displayed
 add_action('wp_head', 'facebook_like_button');
 function facebook_like_button() {
 ?>
@@ -46,7 +49,7 @@ function facebook_like_button() {
 <?php
 }
 
-//Adding the Open Graph in the Language Attributes
+// Adding the Open Graph in the Language Attributes
 function add_opengraph_doctype( $output ) {
 		return $output . ' xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"';
 	}
@@ -67,6 +70,7 @@ function add_to_head() {
 <?php
 }
 
+// This contains everything below the post. Has Social Sharing, Affiliate box, and Author Bio
 add_action('headway_after_entry_content', 'aj_bio_share');
 function aj_bio_share() {
 	
@@ -95,8 +99,8 @@ function aj_bio_share() {
 		</div>
 		
 		<div class="author">
-			<h3>About <?php the_author('display_name'); ?></h3>
-			<p class="author-image"><?php echo get_avatar( get_the_author_email(), '124' ); ?></p>
+			<h3>About <?php echo get_the_author_meta('display_name'); ?></h3>
+			<p class="author-image"><?php echo get_avatar( get_the_author_meta('email'), '124' ); ?></p>
 			<p class="author-bio"><?php the_author_meta('description'); ?></p>
 			<p class="author-follow">Follow Me On: <?php echo do_shortcode('[twitter]'); ?> <?php echo do_shortcode('[github]'); ?></p>
 		</div>
@@ -105,7 +109,7 @@ function aj_bio_share() {
 	
 }
 
-//Change Post Buttons
+// Change Post Buttons
 add_filter('next_post_link', 'headway_change_next_post_link', 12, 2);
 function headway_change_next_post_link($format, $link) {
 	return preg_replace('/\">(.*?)<\/a>/i', '">Next Post &gt;&gt;</a>', $format);
@@ -116,10 +120,11 @@ function headway_change_previous_post_link($format, $link) {
 	return preg_replace('/\">(.*?)<\/a>/i', '">&lt;&lt; Previous Post</a>', $format);
 }
 
-//Shortcodes
+// Shortcodes
 add_filter('widget_text', 'do_shortcode');
 add_filter('the_content', 'do_shortcode');
-//Notice Function
+
+// Notice shortcode
 function box_shortcode( $atts, $content = null )
 {
 	extract( shortcode_atts( array(
@@ -134,7 +139,7 @@ function box_shortcode( $atts, $content = null )
 }
 add_shortcode('box', 'box_shortcode');
 
-//Twitter shortcode
+// Twitter shortcode
 function follow_twitter() {
 	$output = '
 	<a href="https://twitter.com/ajmorris" class="twitter-follow-button" data-show-count="false">Follow @ajmorris</a>
@@ -144,7 +149,7 @@ function follow_twitter() {
 }
 add_shortcode('twitter', 'follow_twitter');
 
-//Github shortcode
+// Github shortcode
 function follow_github() {
 	$output = '
 		<iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=ajmorris&type=follow&count=false"
@@ -153,7 +158,7 @@ function follow_github() {
 }
 add_shortcode('github', 'follow_github');
 
-//Subscribe shortcode
+// Subscribe shortcode
 function subscribe_box() {
 	$emailbuddy = do_shortcode('[emailbuddy type="event" list="1" button="Join Today!" confirmation="Thank you for subscribing!" text="Enter Email Addess"]');
 	$output .= '
