@@ -6,11 +6,11 @@ class ManageAjChildThemePanel extends HeadwayVisualEditorPanelAPI {
 	public $mode = 'manage';
 	
 	public $tabs = array(
-		'background' => 'Background'
+		'background' => 'Background',
 	);
 	
 	public $tab_notices = array(
-		'background' => 'These settings are for the child theme you\'ve activated.'
+		'background' => 'These settings are for the child theme you\'ve activated.',
 	);
 	
 	public $inputs = array(		

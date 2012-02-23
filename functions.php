@@ -9,7 +9,7 @@ function aj_load_panel_options() {
 // Adds an inline style to the <head> so that you can
 add_action('wp_head', 'switch_background_image');
 function switch_background_image() {
-	$image = HeadwayOption::get('aj-background-image', 'general', $default);
+	$image = HeadwayOption::get('aj-background-image', 'general');
 	
 	switch ($image)
 	{
