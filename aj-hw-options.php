@@ -27,7 +27,7 @@ class ManageAjChildThemePanel extends HeadwayVisualEditorPanelAPI {
 				'label' => 'Background Image',
 				'default' => 'Default',
 				'tooltip' => 'Change the background image of the theme.',
-				'callback' => '$i("body").css({backgroundImage: "url(" + Headway.childThemeURL + "/images/" + value + ")" });'
+				'callback' => '$i("body").css({background: "url(" + Headway.childThemeURL + "/images/" + value + ") white" });'
 			)
 		)
 	);

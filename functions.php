@@ -1,10 +1,12 @@
 <?php
 
+// Loads the Panel functions file created in the Child Theme
 add_action('headway_visual_editor_init', 'aj_load_panel_options');
 function aj_load_panel_options() {
 	require_once( get_stylesheet_directory(). '/aj-hw-options.php' );
 }
 
+// Adds an inline style to the <head> so that you can
 add_action('wp_head', 'switch_background_image');
 function switch_background_image() {
 	$image = HeadwayOption::get('aj-background-image', 'general', $default);
@@ -25,8 +27,12 @@ function switch_background_image() {
 	}
 }
 
+// Adds Post Format support for images since I like to post images at time
 add_theme_support('post-formats', array('image', 'link') );
 
+// Removes a few things from Headway when the child theme is activated.
+// In this case, the design editor is turned off, and there's not outputted css from Headway,
+// other than what's needed for the grid
 add_action('headway_setup_child_theme', 'aj_child_setup');
 function aj_child_setup(){
 	remove_theme_support('headway-design-editor');
@@ -50,11 +56,13 @@ function facebook_like_button() {
 }
 
 // Adding the Open Graph in the Language Attributes
-function add_opengraph_doctype( $output ) {
-		return $output . ' xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"';
-	}
 add_filter('language_attributes', 'add_opengraph_doctype');
+function add_opengraph_doctype( $output ) {
+	return $output . ' xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"';
+}
 
+
+// Adds Google's +1 script to the <head>
 add_action('wp_head', 'add_to_head');
 function add_to_head() {
 ?>
@@ -121,12 +129,14 @@ function headway_change_previous_post_link($format, $link) {
 }
 
 // Shortcodes
+
+// Adds the ability to run shortcodes in the text widget and the content of a post
 add_filter('widget_text', 'do_shortcode');
 add_filter('the_content', 'do_shortcode');
 
 // Notice shortcode
-function box_shortcode( $atts, $content = null )
-{
+add_shortcode('box', 'box_shortcode');
+function box_shortcode( $atts, $content = null ) {
 	extract( shortcode_atts( array(
       'color' => '',
       'size' => '',
@@ -135,11 +145,10 @@ function box_shortcode( $atts, $content = null )
       ), $atts ) );
 
       return '<div class="post-notice">' . $content . '</div>';
-
 }
-add_shortcode('box', 'box_shortcode');
 
 // Twitter shortcode
+add_shortcode('twitter', 'follow_twitter');
 function follow_twitter() {
 	$output = '
 	<a href="https://twitter.com/ajmorris" class="twitter-follow-button" data-show-count="false">Follow @ajmorris</a>
@@ -147,18 +156,18 @@ function follow_twitter() {
 	
 	return $output;
 }
-add_shortcode('twitter', 'follow_twitter');
 
 // Github shortcode
+add_shortcode('github', 'follow_github');
 function follow_github() {
 	$output = '
 		<iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=ajmorris&type=follow&count=false"
   allowtransparency="true" frameborder="0" scrolling="0" width="165px" height="20px"></iframe>';
 	return $output;
 }
-add_shortcode('github', 'follow_github');
 
 // Subscribe shortcode
+add_shortcode('subscribe', 'subscribe_box');
 function subscribe_box() {
 	$emailbuddy = do_shortcode('[emailbuddy type="event" list="1" button="Join Today!" confirmation="Thank you for subscribing!" text="Enter Email Addess"]');
 	$output .= '
@@ -170,5 +179,4 @@ function subscribe_box() {
 	
 	return $output;
 }
-add_shortcode('subscribe', 'subscribe_box');
 
