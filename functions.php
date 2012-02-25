@@ -2,26 +2,35 @@
 
 // Headway Specific Code
 
+// Removes a few things from Headway when the child theme is activated.
+// In this case, the design editor is turned off, and there's not outputted css from Headway,
+// other than what's needed for the grid
+add_action('headway_setup_child_theme', 'aj_child_setup');
+function aj_child_setup(){
+	remove_theme_support('headway-design-editor');
+	remove_theme_support('headway-structure-css');
+}
+
 // Register Custom Block Classes
-// add_action('init', 'aj_child_theme_add_block_styles');
-// function aj_child_theme_add_block_styles() {
-// 
-// 	HeadwayChildThemeAPI::register_block_style(array(
-// 		'id' => 'green',
-// 		'name' => 'Groovy Green',
-// 		'class' => 'green groovy'
-// 		// This will show for every block
-// 	));
-// 
-// 	HeadwayChildThemeAPI::register_block_style(array(
-// 		'id' => 'blue',
-// 		'name' => 'Badass Blue',
-// 		'class' => 'blue',
-// 		'block-types' => array('navigation', 'footer')
-// 		// This will only show for certain blocks that are in the array.
-// 	));
-// 
-// }
+add_action('init', 'aj_child_theme_add_block_styles');
+function aj_child_theme_add_block_styles() {
+
+	HeadwayChildThemeAPI::register_block_style(array(
+		'id' => 'green',
+		'name' => 'Groovy Green',
+		'class' => 'green groovy'
+		// This will show for every block
+	));
+
+	HeadwayChildThemeAPI::register_block_style(array(
+		'id' => 'blue',
+		'name' => 'Badass Blue',
+		'class' => 'blue',
+		'block-types' => array('navigation', 'footer')
+		// This will only show for certain blocks that are in the array.
+	));
+
+}
 
 // Loads the Panel functions file created in the Child Theme
 add_action('headway_visual_editor_init', 'aj_load_panel_options');
@@ -50,22 +59,10 @@ function switch_background_image() {
 	}
 }
 
-
-
 // Non-Headway Specific Code
 
 // Adds Post Format support for images since I like to post images at time
 add_theme_support('post-formats', array('image', 'link') );
-
-// Removes a few things from Headway when the child theme is activated.
-// In this case, the design editor is turned off, and there's not outputted css from Headway,
-// other than what's needed for the grid
-add_action('headway_setup_child_theme', 'aj_child_setup');
-function aj_child_setup(){
-	remove_theme_support('headway-design-editor');
-	remove_theme_support('headway-structure-css');
-}
-
 
 // Adds the facebook like button code to the <head> area so that it can be displayed
 add_action('wp_head', 'facebook_like_button');
