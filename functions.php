@@ -1,5 +1,28 @@
 <?php
 
+// Headway Specific Code
+
+// Register Custom Block Classes
+// add_action('init', 'aj_child_theme_add_block_styles');
+// function aj_child_theme_add_block_styles() {
+// 
+// 	HeadwayChildThemeAPI::register_block_style(array(
+// 		'id' => 'green',
+// 		'name' => 'Groovy Green',
+// 		'class' => 'green groovy'
+// 		// This will show for every block
+// 	));
+// 
+// 	HeadwayChildThemeAPI::register_block_style(array(
+// 		'id' => 'blue',
+// 		'name' => 'Badass Blue',
+// 		'class' => 'blue',
+// 		'block-types' => array('navigation', 'footer')
+// 		// This will only show for certain blocks that are in the array.
+// 	));
+// 
+// }
+
 // Loads the Panel functions file created in the Child Theme
 add_action('headway_visual_editor_init', 'aj_load_panel_options');
 function aj_load_panel_options() {
@@ -26,6 +49,10 @@ function switch_background_image() {
 		break;
 	}
 }
+
+
+
+// Non-Headway Specific Code
 
 // Adds Post Format support for images since I like to post images at time
 add_theme_support('post-formats', array('image', 'link') );
