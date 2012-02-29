@@ -6,7 +6,7 @@
 // In this case, the design editor is turned off, and there's not outputted css from Headway,
 // other than what's needed for the grid
 add_action('headway_setup_child_theme', 'aj_child_setup');
-function aj_child_setup(){
+function aj_child_setup() {
 	remove_theme_support('headway-design-editor');
 	remove_theme_support('headway-structure-css');
 }
@@ -18,15 +18,27 @@ function aj_child_theme_add_block_styles() {
 	HeadwayChildThemeAPI::register_block_style(array(
 		'id' => 'green',
 		'name' => 'Groovy Green',
-		'class' => 'green groovy'
+		'class' => 'green'
 		// This will show for every block
+	));
+
+	HeadwayChildThemeAPI::register_block_style(array(
+		'id' => 'orange',
+		'name' => 'Orangey Orange',
+		'class' => 'orange'
+	));
+
+	HeadwayChildThemeAPI::register_block_style(array(
+		'id' => 'yellow',
+		'name' => 'Banana Yellow',
+		'class' => 'yellow'
 	));
 
 	HeadwayChildThemeAPI::register_block_style(array(
 		'id' => 'blue',
 		'name' => 'Badass Blue',
-		'class' => 'blue',
-		'block-types' => array('navigation', 'footer')
+		'class' => 'blue'
+		//'block-types' => array('navigation', 'footer')
 		// This will only show for certain blocks that are in the array.
 	));
 

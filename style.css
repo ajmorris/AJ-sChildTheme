@@ -22,6 +22,20 @@ a {
 	color: #2ba602; 
 }
 
+.orange { color: orange; border: 4px solid orange; background: #fedeb8; }
+.orange a { color: orange; }
+
+.green { color: #2ba602; border: 4px solid #2ba602; background: #a1fa83; }
+.green a { color: #2BA602; }
+
+.blue { color: #002157; border: 4px solid #002157; background: #75a9fd; }
+.blue a { color: #002157; }
+
+.yellow { color: #fff200; border: 4px solid #fff200; background: #fff982; }
+.yellow a { color: #fff200; }
+
+.blue { color: blue; }
+
 /* Header */
 .block-type-header .banner { font-size: 28px; font-family: "Copse", Georgia, serif; margin: 15px 10px 0 !important; }
 .block-type-header .tagline { font-size: 24px; color: gray; font-family: "Copse", Georgia, serif; }
